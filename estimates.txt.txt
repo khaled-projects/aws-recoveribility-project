@@ -1,0 +1,9 @@
+Availability Estimate:
+
+1-For a single Availability Zone (AZ) outage, the Recovery Time Objective (RTO) is impressively low, typically ranging from seconds to minutes due to automatic failover within the same region.
+
+2-However, for a single region outage, necessitating failover to the standby region, the RTO may extend to minutes to hours, contingent on the failover mechanism.
+
+3-Regarding data loss, the Recovery Point Objective (RPO) is minimal for a single AZ outage, virtually eliminating data loss thanks to synchronous replication.
+
+4-Conversely, in the case of a single region outage, some data loss may occur, typically restricted to seconds to minutes, influenced by the replication lag between the primary and standby regions. 

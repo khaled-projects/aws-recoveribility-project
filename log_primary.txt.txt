@@ -1,0 +1,60 @@
+1-connecting to  the primary database:
+##
+[ec2-user@ip-10-1-11-248 ~]$ mysql -h udacity.c0xy5cpqiknh.us-east-1.rds.amazonaws.com -P 3306 -u admin  -p
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 61
+Server version: 8.0.35 Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [(none)]> 
+   
+##
+2-create   table  , insert and  read data from primary database:      
+
+
+#####
+[ec2-user@ip-10-1-11-248 ~]$  mysql -h udacity.c0xy5cpqiknh.us-east-1.rds.amazonaws.com -P 3306 -u admin  -p
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 84
+Server version: 8.0.35 Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| ecommerce          |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| udacity            |
++--------------------+
+6 rows in set (0.01 sec)
+
+MySQL [(none)]> USE udacity
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MySQL [udacity]> INSERT INTO users (username, email) VALUES ('john_dami', 'john@example.com');
+Query OK, 1 row affected (0.00 sec)
+
+MySQL [udacity]> SELECT * FROM users;
++----+-----------+------------------+---------------------+
+| id | username  | email            | created_at          |
++----+-----------+------------------+---------------------+
+|  1 | john_doe  | john@example.com | 2024-05-30 10:10:04 |
+|  2 | john_dami | john@example.com | 2024-05-30 11:16:34 |
++----+-----------+------------------+---------------------+
+2 rows in set (0.01 sec)
+
+
